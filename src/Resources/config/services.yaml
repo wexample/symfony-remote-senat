@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Wexample\SymfonyRemoteSenat\Service\SenatReportParser: ~
+
+    Wexample\SymfonyRemoteSenat\Service\SenatDebatesClient:
+        arguments:
+            $cacheDir: '%wexample_symfony_remote_senat.cache_dir%/debates'
+            $url: '%wexample_symfony_remote_senat.debates.url%'

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><cri:cri xmlns:cri="http://senat.fr/schemas/thb/cri" xmlns="http://www.w3.org/1999/xhtml"><html><head><link rel="stylesheet" type="text/css" href="niv_3.css"></head>
+<body>
+<cri:sommaire><cri:tm3><p class="tm3">2. Questions</p></cri:tm3></cri:sommaire>
+<cri:corps parid="par_1">
+<cri:titreS1 parid="par_2" libelle="Pr&#233;sidence de M.&#160;Lo&#239;c Herv&#233;" type="sect_autredivers"><p class="titre_S1" id="par_2">Pr&#233;sidence de M.&#160;Lo&#239;c Herv&#233;</p></cri:titreS1>
+<cri:numencadre parid="par_14"><p class="num_encadre" id="par_14">2</p></cri:numencadre>
+<cri:titreS1 parid="par_15" libelle="Questions d&#8217;actualit&#233; au Gouvernement" type="sect_questions_actualite"><p class="titre_S1" id="par_15">Questions d&#8217;actualit&#233; au Gouvernement</p></cri:titreS1>
+<div class="intervenant"><cri:intervenant id="int_3" parid="par_16" mat="14179A" nom="Lo&#239;c HERV&#201;" civ="M." qua="pr&#233;sident de s&#233;ance" type="1">
+<p id="par_16"><span class="orateur_nom"><cri:orateurnom><a href="/senateur/herve_loic14179a.html"><span>M.&#160;</span><span>le pr&#233;sident.</span></a></cri:orateurnom></span> L&#8217;ordre du jour appelle les questions.</p>
+<cri:titreS3 parid="par_21" type="question_actualite"><p class="titre_S3" id="par_21">fret ferroviaire</p></cri:titreS3>
+</cri:intervenant></div>
+<div class="intervenant"><cri:intervenant id="int_4" parid="par_22" mat="14179A" nom="Lo&#239;c HERV&#201;" civ="M." qua="pr&#233;sident de s&#233;ance" type="1">
+<p id="par_22"><span class="orateur_nom"><cri:orateurnom><span>M.&#160;</span><span>le pr&#233;sident.</span></cri:orateurnom></span> La parole est &#224; M.&#160;Pierre Barros.</p>
+</cri:intervenant></div>
+<div class="intervenant"><cri:intervenant id="int_5" parid="par_23" mat="21084L" nom="Pierre BARROS" civ="M." qua="" type="1">
+<p id="par_23"><span class="orateur_nom"><cri:orateurnom><span>M.&#160;</span><span>Pierre Barros</span><span>.</span></cri:orateurnom></span> Monsieur le ministre, le fret recule.</p>
+<p id="par_24">Il recule encore. <span class="info_entre_parentheses"><cri:infoentreparentheses>(Applaudissements.)</cri:infoentreparentheses></span></p>
+</cri:intervenant></div>
+<div class="intervenant"><cri:intervenant id="int_6" parid="par_25" mat="21409M" nom="Fran&#231;ois DUROVRAY" civ="M." qua="" type="2">
+<p id="par_25"><span class="orateur_nom"><cri:orateurnom><span>M.&#160;</span><span>Fran&#231;ois Durovray</span></cri:orateurnom></span><cri:orateurqualite>, ministre d&#233;l&#233;gu&#233; charg&#233; des transports.</cri:orateurqualite> Il avance.</p>
+</cri:intervenant></div>
+<cri:titreS1 parid="par_30" libelle="PLF" type="sect_pdl"><p class="titre_S1" id="par_30">Loi de finances pour 2025</p></cri:titreS1>
+<cri:mentionarticle parid="par_31"><p id="par_31">Article 3</p></cri:mentionarticle>
+<div class="intervenant"><cri:intervenant id="int_7" parid="par_32" mat="19649G" nom="Marie-Pierre de LA GONTRIE" civ="Mme" qua="" type="1">
+<p id="par_32"><span class="orateur_nom"><cri:orateurnom><span>Mme&#160;</span><span>Marie-Pierre de La&#160;Gontrie</span>.</cri:orateurnom></span> Cet article est mauvais.</p>
+</cri:intervenant></div>
+</cri:corps></body></html></cri:cri>

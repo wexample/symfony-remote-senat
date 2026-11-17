@@ -1,5 +1,6 @@
 {
   "name": "wexample/symfony-remote-senat",
+  "description": "The Sénat's open data (data.senat.fr), as symfony-remotes: the verbatim reports of its sittings, read into debate points",
   "version": "1.0.1",
   "type": "library",
   "license": "MIT",
@@ -7,5 +8,45 @@
     "psr-4": {
       "Wexample\\SymfonyRemoteSenat\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Wexample\\SymfonyRemoteSenat\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "weeger",
+      "email": "romain.weeger@wexample.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.5",
+    "wexample/symfony-helpers": ">=19.3.0",
+    "wexample/symfony-remote": ">=2.2.0",
+    "wexample/php-remote": ">=2.0.2",
+    "symfony/http-client": ">=7.0",
+    "symfony/filesystem": ">=7.0",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^13"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../*",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "extra": {
+    "install": {
+      "bundle_env": "all"
+    }
+  },
+  "suggest": {
+    "ext-zip": "To unpack the archive: without it, the remote reads Unconfigured."
   }
 }
