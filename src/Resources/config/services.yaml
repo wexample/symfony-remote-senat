@@ -10,3 +10,4 @@ services:
         arguments:
             $cacheDir: '%wexample_symfony_remote_senat.cache_dir%/debates'
             $url: '%wexample_symfony_remote_senat.debates.url%'
+            $calendarUrl: '%wexample_symfony_remote_senat.debates.calendar_url%'

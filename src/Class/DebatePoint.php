@@ -22,6 +22,14 @@ final readonly class DebatePoint
     ) {
     }
 
+    /**
+     * The same point, held on another day: its report was misdated.
+     */
+    public function withDate(DateTimeImmutable $date): self
+    {
+        return new self($this->key, $this->title, $date, $this->interventions);
+    }
+
     public function getLength(): int
     {
         return array_sum(array_map(static fn (Intervention $intervention): int => mb_strlen($intervention->text), $this->interventions));

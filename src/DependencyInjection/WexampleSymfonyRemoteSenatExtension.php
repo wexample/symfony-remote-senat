@@ -14,6 +14,7 @@ class WexampleSymfonyRemoteSenatExtension extends AbstractWexampleSymfonyExtensi
         $config = $this->processConfiguration(new Configuration(), $configs);
         $container->setParameter('wexample_symfony_remote_senat.cache_dir', $config['cache_dir']);
         $container->setParameter('wexample_symfony_remote_senat.debates.url', $config['debates']['url']);
+        $container->setParameter('wexample_symfony_remote_senat.debates.calendar_url', $config['debates']['calendar_url']);
 
         $this->loadConfig(
             __DIR__,

@@ -22,6 +22,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('url')->defaultValue(SenatDebatesClient::DEFAULT_URL)->end()
+                        ->scalarNode('calendar_url')->defaultValue(SenatDebatesClient::DEFAULT_CALENDAR_URL)->info('The base of the debates, which dates the reports.')->end()
                     ->end()
                 ->end()
             ->end();

@@ -24,6 +24,11 @@ use Wexample\SymfonyRemoteSenat\Class\Intervention;
  */
 class SenatReportParser
 {
+    private const array MONTHS = [
+        'janvier' => 1, 'février' => 2, 'mars' => 3, 'avril' => 4, 'mai' => 5, 'juin' => 6,
+        'juillet' => 7, 'août' => 8, 'septembre' => 9, 'octobre' => 10, 'novembre' => 11, 'décembre' => 12,
+    ];
+
     private const string TOKENS = '#(<cri:titreS1\b.*?</cri:titreS1>|<cri:titreS2\b.*?</cri:titreS2>|<cri:titreS3\b.*?</cri:titreS3>|<cri:mentionarticle\b.*?</cri:mentionarticle>|<cri:intervenant\b[^>]*>|</cri:intervenant>|<cri:orateurnom>.*?</cri:orateurnom>|<cri:orateurqualite>.*?</cri:orateurqualite>|</p>)#s';
 
     /**
@@ -112,6 +117,27 @@ class SenatReportParser
             ),
             $points
         );
+    }
+
+    /**
+     * The day of the next sitting, as the report announces it at its end (« Prochaine
+     * séance, … vendredi 5 décembre 2025 »): what tells the day of a report whose
+     * file is misnamed. Null when it announces none.
+     */
+    public function readNextSitting(string $xml): ?DateTimeImmutable
+    {
+        $text = $this->clean($this->toUtf8($xml));
+        $found = preg_match_all(
+            '/prochaine s[ée]ance.{0,400}?(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\s+(\d{1,2})(?:er)?\s+(\p{L}+)\s+(\d{4})/iu',
+            $text,
+            $matches,
+            PREG_SET_ORDER
+        );
+        $month = $found ? (self::MONTHS[mb_strtolower(end($matches)[2])] ?? null) : null;
+
+        return null === $month
+            ? null
+            : DateTimeImmutable::createFromFormat('!Y-n-j', sprintf('%d-%d-%d', end($matches)[3], $month, end($matches)[1]));
     }
 
     /**
