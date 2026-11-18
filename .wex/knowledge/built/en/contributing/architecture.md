@@ -2,10 +2,11 @@
 
 Under `Wexample\SymfonyRemoteSenat\` (PSR-4 on `src/`):
 
-- src/Service/SenatDebatesClient.php, the remote: the zip streamed to disk through Symfony's HttpClient, unpacked with `ZipArchive` into a `.part` directory, its `cri/` moved in place once complete — a failure on the way leaves the previous reports untouched.
+- src/Service/SenatDebatesClient.php, the remote: the reports' zip and the base's streamed to disk through Symfony's HttpClient, unpacked with `ZipArchive` into a `.part` directory, its `cri/` moved in place once complete — a failure on the way leaves the previous reports untouched.
 - src/Service/SenatReportParser.php reads a `cri/dYYYYMMDD.xml`. The files are XHTML laced with `cri:` tags, not always well formed, Latin-1 or UTF-8 whatever they declare: they are read as a stream of the tags that matter, split by one regular expression. A title (`cri:titreS1` to `S3`, `cri:mentionarticle` for an article of a bill) opens a point under its parents' titles; « Présidence de … » is the chair changing hands, not a point. A `cri:intervenant` is an intervention, its record in `mat`, its name in `nom` (« Loïc HERVÉ » read « Loïc Hervé »); a title met inside it cuts it. Words outside any intervention — the texts voted on — are left out. Files before 2005 have no `cri:intervenant` and give no point; a later one without any raises `RemoteException`.
-- src/Class/DebatePoint.php and src/Class/Intervention.php, readonly values, the package's own.
+- src/Class/SittingCalendar.php, the days the Sénat sat, read line by line out of the `debats` table of the base's PostgreSQL dump — a hundred megabytes, streamed from the zip —, kept by the client as a JSON list. The client dates each report with it (`findDay()`), the parser reading the announced next sitting (`readNextSitting()`), and reports `misdated_report` / `undated_report` through php-remote's `RemoteReporter`. The calendar is memoized for a run; `reset()` drops it for a worker living longer.
+- src/Class/DebatePoint.php and src/Class/Intervention.php, readonly values, the package's own; `withDate()` re-dates a point, its key unchanged.
 
 ### Tests
 
-Unit tests: the parser on a trimmed real report (`tests/Fixtures/d20241113.xml`), on a report before 2005 and on a page of another format; the client on Symfony's `MockHttpClient` with a zip built by the test — a download read once then from disk, a failed refresh keeping the reports, an answer that is no zip.
+Unit tests: the parser on a trimmed real report (`tests/Fixtures/d20241113.xml`), on a report before 2005 and on a page of another format; the client on Symfony's `MockHttpClient` with a zip built by the test — a download read once then from disk, a failed refresh keeping the reports, an answer that is no zip, a report read as named, one misdated read at its true day and signalled, one undated left out; the calendar and the announcement on fixtures.
